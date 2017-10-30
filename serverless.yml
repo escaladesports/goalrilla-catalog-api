@@ -15,6 +15,7 @@ provider:
 
 plugins:
   - serverless-offline
+  - serverless-webpack
 
 functions:
   # V1 - use semver, increment version appended when breaking changes made

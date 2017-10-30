@@ -1,9 +1,10 @@
 {
   "scripts": {
-	  "dev": "NODE_ENV=dev serverless offline start"
+    "dev": "NODE_ENV=dev serverless offline start"
   },
   "devDependencies": {
-    "serverless-offline": "^3.16.0"
+    "serverless-offline": "^3.16.0",
+    "serverless-webpack": "^3.1.2"
   },
   "dependencies": {
     "request": "^2.83.0",
