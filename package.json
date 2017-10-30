@@ -1,4 +1,7 @@
 {
+  "scripts": {
+	  "dev": "NODE_ENV=dev serverless offline start"
+  },
   "devDependencies": {
     "serverless-offline": "^3.16.0"
   },
