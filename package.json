@@ -1,6 +1,8 @@
 {
   "scripts": {
     "dev": "NODE_ENV=dev serverless offline start",
+    "deploy": "serverless deploy --stage test",
+    "deploy-prod": "node utils/deploy-prod.js",
     "test": "NODE_ENV=test mocha"
   },
   "devDependencies": {
