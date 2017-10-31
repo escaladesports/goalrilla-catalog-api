@@ -21,14 +21,14 @@ plugins:
 functions:
   # V1 - use semver, increment version appended when breaking changes made
   createV1:
-    handler: src/handler.create
+    handler: src/handler.createV1
     events:
       - http:
           path: V1/endpoint
           method: post
           cors: true
   fetchV1:
-    handler: src/handler.fetch
+    handler: src/handler.fetchV1
     events:
       - http:
           path: V1/endpoint/{myParam}

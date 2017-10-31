@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.create = (event, context, callback) => {
+module.exports.createV1 = (event, context, callback) => {
   const response = {
     statusCode: 200,
     body: JSON.stringify({
@@ -12,7 +12,7 @@ module.exports.create = (event, context, callback) => {
   callback(null, response);
 };
 
-module.exports.fetch = (event, context, callback) => {
+module.exports.fetchV1 = (event, context, callback) => {
   const response = {
     statusCode: 200,
     body: JSON.stringify({
