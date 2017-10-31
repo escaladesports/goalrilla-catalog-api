@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "NODE_ENV=dev serverless offline start"
+    "dev": "NODE_ENV=dev serverless offline start",
+    "test": "NODE_ENV=test mocha"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
