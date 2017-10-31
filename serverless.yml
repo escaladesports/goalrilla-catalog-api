@@ -7,11 +7,11 @@ custom:
 provider:
   name: aws
   runtime: nodejs6.10
-  # dev, stage, or prod
   stage: dev
+  # dev, test, or prod
   region: us-east-2
   environment:
-    STAGE: ${self:provider.stage}
+    STAGE: ${opt:stage, self:provider.stage}
     # SECRET_VALUE: "${self:custom.secrets.SECRET_VALUE}"
 
 plugins:
