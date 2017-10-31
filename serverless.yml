@@ -1,11 +1,12 @@
 service: serverless-boilerplate
 
 custom:
-  secrets: ${file(env.yml):prod}
+  # enable for environment variables
+  # #secrets: ${file(env.yml):prod}
   webpackIncludeModules: true
 
 provider:
-  name: aws
+  name: spotinst
   runtime: nodejs6.10
   stage: dev
   # dev, test, or prod
