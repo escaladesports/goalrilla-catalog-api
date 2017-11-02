@@ -7,6 +7,8 @@ custom:
 
 provider:
   name: spotinst
+  spotinst:
+    environment: env-eb36c360
   runtime: nodejs6.10
   stage: dev
   # dev, test, or prod
