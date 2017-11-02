@@ -16,6 +16,7 @@ provider:
     # SECRET_VALUE: "${self:custom.secrets.SECRET_VALUE}"
 
 plugins:
+  - serverless-spotinst-functions
   - serverless-webpack
   - serverless-offline
 
