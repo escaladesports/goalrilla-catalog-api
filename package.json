@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "deploy": "serverless deploy --stage test",
-    "deploy-prod": "node utils/deploy-prod.js",
+    "deploy": "yarn test && serverless deploy --stage test",
+    "deploy-prod": "yarn test && node utils/deploy-prod.js",
     "test": "NODE_ENV=test mocha"
   },
   "devDependencies": {
