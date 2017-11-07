@@ -17,6 +17,7 @@ Boilerplate for Serverless applications using Spotinst and Node.js
 1. Ensure Node.js 8.3+, Yarn, and Git are installed
 2. `git clone https://github.com/escaladesports/serverless-boilerplate.git`
 3. `yarn` (installs all dependencies)
+4. [Follow these instructions](https://help.spotinst.com/hc/en-us/articles/115005396809-Set-Up-Local-Machine-for-Spotinst-Serverless) for setting up Spotinst credentials using the Serverless CLI
 
 ------
 
