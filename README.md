@@ -8,6 +8,7 @@ Boilerplate for Serverless applications using Spotinst and Node.js
 2. [Deployment](#deployment)
     - [Test deployment](#test-deployment)
     - [Production deployment](#production-deployment)
+3. [Style rules](#style-rules)
 
 ------
 
@@ -74,3 +75,9 @@ To deploy to testing, run `yarn deploy`
 ### Production deployment
 
 To deploy to production, run `yarn deploy-prod` and enter `Y` when prompted to continue.
+
+------
+
+## Style rules
+
+1. Use semantic versioning for all main functions/handlers - append function names with their major version number `myHandlerV1`, `myHandlerV2`, etc. whenever compatibility-breaking changes are made (keep old functions intact so they can still be used)
