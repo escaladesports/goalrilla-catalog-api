@@ -2,6 +2,14 @@
 
 Boilerplate for Serverless applications using Spotinst and Node.js
 
+## Contents
+1. [Installation (development)](#installation-development)
+    - [Using environment variables](#using-environment-variables)
+2. [Deployment](#deployment)
+    - [Test deployment](#test-deployment)
+    - [Production deployment](#production-deployment)
+    
+
 ## Installation (development)
 
 1. Ensure Node.js 8.3+, Yarn, and Git are installed
