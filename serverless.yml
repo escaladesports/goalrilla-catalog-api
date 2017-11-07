@@ -12,9 +12,6 @@ provider:
   stage: dev
   # dev, test, or prod
   region: us-east-2
-  environment:
-    STAGE: ${opt:stage, self:provider.stage}
-    # SECRET_VALUE: "${self:custom.secrets.SECRET_VALUE}"
 
 plugins:
   - serverless-spotinst-functions
