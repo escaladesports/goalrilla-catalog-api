@@ -59,8 +59,8 @@ provider:
   # dev, test, or prod
   region: us-east-2
   environment:
-    STAGE: ${opt:stage, self:provider.stage}
-    GOOGLE_SHEETS_CLIENT_EMAIL: "${self:custom.secrets.GOOGLE_SHEETS_CLIENT_EMAIL}" # un-commented
+    STAGE: ${opt:stage, self:provider.stage} # STAGE is exposed as an environment variable already, no need to alter this
+    GOOGLE_SHEETS_CLIENT_EMAIL: "${self:custom.secrets.GOOGLE_SHEETS_CLIENT_EMAIL}"
 ```
 
 ------
