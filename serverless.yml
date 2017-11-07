@@ -2,7 +2,7 @@ service: serverless-boilerplate
 
 custom:
   # enable for environment variables
-  # #secrets: ${file(env.yml):prod}
+  # secrets: ${file(env.yml):prod}
   webpackIncludeModules: true
 
 provider:
