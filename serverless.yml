@@ -19,7 +19,6 @@ provider:
 plugins:
   - serverless-spotinst-functions
   - serverless-webpack
-  - serverless-offline
 
 functions:
   # V1 - use semver, increment version appended when breaking changes made
