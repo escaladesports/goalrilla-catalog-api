@@ -8,7 +8,8 @@ Boilerplate for Serverless applications using Spotinst and Node.js
 2. [Deployment](#deployment)
     - [Test deployment](#test-deployment)
     - [Production deployment](#production-deployment)
-    
+
+------
 
 ## Installation (development)
 
@@ -62,6 +63,7 @@ provider:
     GOOGLE_SHEETS_CLIENT_EMAIL: "${self:custom.secrets.GOOGLE_SHEETS_CLIENT_EMAIL}" # un-commented
 ```
 
+------
 
 ## Deployment
 
