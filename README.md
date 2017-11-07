@@ -45,7 +45,7 @@ custom:
 provider:
   name: spotinst
   spotinst:
-    environment: env-eb36c360
+    environment: env-xxxxxxxx
   stage: dev
   # dev, test, or prod
   region: us-east-2
