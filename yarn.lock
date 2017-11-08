@@ -3314,6 +3314,10 @@ pointer-symbol@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/pointer-symbol/-/pointer-symbol-1.0.0.tgz#60f9110204ea7a929b62644a21315543cbb3d447"
 
+postcode-validator@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/postcode-validator/-/postcode-validator-1.2.0.tgz#017acba5860309ea54e1384acc4a40dfc250b06e"
+
 prepend-http@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
