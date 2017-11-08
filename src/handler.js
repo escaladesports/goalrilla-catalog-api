@@ -1,6 +1,6 @@
 'use strict';
 
-const catalogApi = require('catalog-api.js');
+const catalogApi = require('./catalog-api.js');
 
 /*
   Main entry points go here
@@ -34,15 +34,19 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
 
     callback(null, response);
   }).catch(err => {
+    let errors = [new Error('There was a problem with your request. Please try again later.')];
+
     const response = {
       statusCode: 400,
       body: JSON.stringify({
-        errors: ['There was a problem with your request. Please try again later.']
+        errors
       }),
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': true
       }
-    }
+    };
+
+    callback(null,response);
   });
 };

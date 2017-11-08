@@ -8,7 +8,7 @@ const expect = chai.expect;
 describe('Request Validator', function() {
 	it('should return false if no input is given', done => {
 		const res = reqValidator.validateCatalogRequest();
-		expect(res).to.be.false;
+		expect(res).to.be.an('error');
 		done();
 	})
 
@@ -23,7 +23,7 @@ describe('Request Validator', function() {
 			userZip: '47711'
 		};
 		const res = reqValidator.validateCatalogRequest(params);
-		expect(res).to.be.false;
+		expect(res).to.be.an('error');
 		done();
 	});
 
@@ -38,7 +38,7 @@ describe('Request Validator', function() {
 			userZip: '47711'
 		};
 		const res = reqValidator.validateCatalogRequest(params);
-		expect(res).to.be.false;
+		expect(res).to.be.an('error');
 		done();
 	});
 
@@ -53,7 +53,7 @@ describe('Request Validator', function() {
 			userZip: '123'
 		};
 		const res = reqValidator.validateCatalogRequest(params);
-		expect(res).to.be.false;
+		expect(res).to.be.an('error');
 		done();
 	});
 

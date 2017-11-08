@@ -17,13 +17,13 @@ function validateCatalogRequest(data) {
 		!data || !data.userFirstName || !data.userLastName || !data.userEmail ||
 		!data.userAddress || !data.userCity || !data.userState || !data.userZip
 	) {
-		return false;
+		return new Error('The request data was malformed- ensure parameter data is correct and try again.');
 	}
 	if (!validateEmail(data.userEmail)) {
-		return false;
+		return new Error('A valid email address is required');
 	}
 	if (!validateZip(data.userZip)) {
-		return false;
+		return new Error('A valid zip code is required.');
 	}
 	return true;
 }
