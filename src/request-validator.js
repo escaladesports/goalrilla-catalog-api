@@ -17,13 +17,31 @@ function validateCatalogRequest(data) {
 		!data || !data.userFirstName || !data.userLastName || !data.userEmail ||
 		!data.userAddress || !data.userCity || !data.userState || !data.userZip
 	) {
-		return new Error('The request data was malformed- ensure parameter data is correct and try again.');
+		return new Error('The request was missing required data- ensure parameters are correct and try again.');
 	}
-	if (!validateEmail(data.userEmail)) {
+	if (!data) {
+		throw new Error('validateCatalogRequest requires a \'data\' parameter');
+	}
+	if (!data.userFirstName) {
+		return new Error('A valid first name is required');
+	}
+	if (!data.userLastName) {
+		return new Error('A valid last name is required');
+	}
+	if (!data.userEmail || !validateEmail(data.userEmail)) {
 		return new Error('A valid email address is required');
 	}
-	if (!validateZip(data.userZip)) {
-		return new Error('A valid zip code is required.');
+	if (!data.userAddress) {
+		return new Error('A valid mailing address is required');
+	}
+	if (!data.userCity) {
+		return new Error('A valid city is required');
+	}
+	if (!data.userState) {
+		return new Error('A valid state is required');
+	}
+	if (!data.userZip || !validateZip(data.userZip)) {
+		return new Error('A valid US or Canadian zip code is required.');
 	}
 	return true;
 }
