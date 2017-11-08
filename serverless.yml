@@ -1,4 +1,4 @@
-service: serverless-boilerplate
+service: goalrilla-catalog-api
 
 custom:
   # enable for environment variables
@@ -8,7 +8,7 @@ custom:
 provider:
   name: spotinst
   spotinst:
-    environment: env-eb36c360
+    environment: env-1c20e3a9
   stage: dev
   # dev, test, or prod
   region: us-east-2
@@ -19,15 +19,9 @@ plugins:
 
 functions:
   # V1 - use semver, increment version appended when breaking changes made
-  createV1:
+  requestCatalogV1:
     runtime: nodejs8.3
     memory: 128
     timeout: 30
     access: public
-    handler: src/handler.createV1
-  fetchV1:
-    runtime: nodejs8.3
-    memory: 128
-    timeout: 30
-    access: public
-    handler: src/handler.fetchV1
+    handler: src/handler.requestCatalogV1
