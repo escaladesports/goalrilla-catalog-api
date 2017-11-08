@@ -7,8 +7,7 @@ const expect = chai.expect;
 
 describe('Request Validator', function() {
 	it('should return false if no input is given', done => {
-		const res = reqValidator.validateCatalogRequest();
-		expect(res).to.be.an('error');
+		expect(() => reqValidator.validateCatalogRequest()).to.throw(Error);
 		done();
 	})
 

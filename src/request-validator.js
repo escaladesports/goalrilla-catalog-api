@@ -13,12 +13,6 @@ function validateZip(zip) {
 }
 
 function validateCatalogRequest(data) {
-	if (
-		!data || !data.userFirstName || !data.userLastName || !data.userEmail ||
-		!data.userAddress || !data.userCity || !data.userState || !data.userZip
-	) {
-		return new Error('The request was missing required data- ensure parameters are correct and try again.');
-	}
 	if (!data) {
 		throw new Error('validateCatalogRequest requires a \'data\' parameter');
 	}
