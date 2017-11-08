@@ -9,17 +9,18 @@ const catalogApi = require('./catalog-api.js');
 */
 
 module.exports.requestCatalogV1 = (event, context, callback) => {
-  const body = {
-    userFirstName: event.body['First Name'], 
-    userLastName: event.body['Last Name'],
-    userEmail: event.body['Email'],
-    userAddress: event.body['Address'],
-    userCity: event.body['City'],
-    userState: event.body['State'],
-    userZip: event.body['Zip']
+  const eventBody = JSON.parse(event.body);
+  const params = {
+    userFirstName: eventBody['First Name'], 
+    userLastName: eventBody['Last Name'],
+    userEmail: eventBody['Email'],
+    userAddress: eventBody['Address'],
+    userCity: eventBody['City'],
+    userState: eventBody['State'],
+    userZip: eventBody['Zip']
   };
 
-  return catalogApi.postCatalogRequest(body).then(res => {
+  return catalogApi.postCatalogRequest(params).then(res => {
     const response = {
       statusCode: 200,
       body: JSON.stringify({
@@ -39,7 +40,8 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
     const response = {
       statusCode: 400,
       body: JSON.stringify({
-        errors
+        errors,
+        input: event
       }),
       headers: {
         'Access-Control-Allow-Origin': '*',
