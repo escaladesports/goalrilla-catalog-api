@@ -34,7 +34,7 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
 
     callback(null, response);
   }).catch(err => {
-    let errors = [new Error('There was a problem with your request. Please try again later.')];
+    const errors = [err.toString()];
 
     const response = {
       statusCode: 400,
