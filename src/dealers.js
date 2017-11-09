@@ -26,7 +26,8 @@ function findNearestDealer(zip) {
 	const endpoint = `https://apis.escaladesports.com/v1/dealers/territory/goalrilla/zip/${zip}/100`;
 	return request(endpoint).then(res => {
 		// sort
-		return res;
+		const dealers = JSON.parse(res) || {};
+		return _getNearestDealerFromGroup(dealers.dealers, zip);
 	});
 }
 
