@@ -2,7 +2,7 @@ const requestValidator = require('./request-validator.js');
 const dealers = require('./dealers.js');
 const email = require('./email.js');
 
-function catalogRequestActions(data) {
+function _catalogRequestActions(data) {
 	let dealerResponseData;
 
 	return dealers.findNearestDealer(data.userZip).then(dealer => {
@@ -34,7 +34,7 @@ function postCatalogRequest(params) {
 	if (err !== true) {
 		return Promise.reject(err);
 	}
-	return catalogRequestActions(params);
+	return _catalogRequestActions(params);
 }
 
 module.exports = {
