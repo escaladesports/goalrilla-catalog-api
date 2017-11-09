@@ -2,7 +2,7 @@ service: goalrilla-catalog-api
 
 custom:
   # enable for environment variables
-  secrets: ${file(env.yml):prod}
+  #secrets: ${file(env.yml):prod}
   webpackIncludeModules: true
 
 provider:
@@ -12,9 +12,10 @@ provider:
   region: us-east-2
   environment:
     STAGE: ${self:provider.stage}
-    SPARKPOST_API_KEY: "${self:custom.secrets.SPARKPOST_API_KEY}"
+    #SPARKPOST_API_KEY: "${self:custom.secrets.SPARKPOST_API_KEY}"
 plugins:
   - serverless-webpack
+  - serverless-offline
 
 functions:
   # V1 - use semver, increment version appended when breaking changes made
