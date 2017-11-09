@@ -9,7 +9,13 @@ const catalogApi = require('./catalog-api.js');
 */
 
 module.exports.requestCatalogV1 = (event, context, callback) => {
-  const eventBody = JSON.parse(event.body);
+  let eventBody;
+  try {
+    eventBody = JSON.parse(event.body);
+  }
+  catch (e) {
+    eventBody = {};
+  }
   const params = {
     userFirstName: eventBody['First Name'], 
     userLastName: eventBody['Last Name'],
@@ -19,6 +25,7 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
     userState: eventBody['State'],
     userZip: eventBody['Zip']
   };
+
 
   return catalogApi.postCatalogRequest(params).then(res => {
     const response = {
