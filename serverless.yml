@@ -2,26 +2,26 @@ service: goalrilla-catalog-api
 
 custom:
   # enable for environment variables
-  # secrets: ${file(env.yml):prod}
+  secrets: ${file(env.yml):prod}
   webpackIncludeModules: true
 
 provider:
-  name: spotinst
-  spotinst:
-    environment: env-1c20e3a9
-  stage: dev
-  # dev, test, or prod
+  name: aws
+  runtime: nodejs6.10
+  stage: production
   region: us-east-2
-
+  environment:
+    STAGE: ${self:provider.stage}
+    SPARKPOST_API_KEY: "${self:custom.secrets.SPARKPOST_API_KEY}"
 plugins:
-  - serverless-spotinst-functions
   - serverless-webpack
 
 functions:
   # V1 - use semver, increment version appended when breaking changes made
   requestCatalogV1:
-    runtime: nodejs8.3
-    memory: 128
-    timeout: 30
-    access: public
     handler: src/handler.requestCatalogV1
+    events:
+      - http:
+          path: catalog-requests
+          method: post
+          cors: true
