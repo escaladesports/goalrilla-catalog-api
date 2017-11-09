@@ -1,5 +1,22 @@
 const request = require('request-promise-native');
 
+function _getNearestDealerFromGroup(dealers, zip) {
+	if (!dealers) {
+		throw new Error('_getNearestDealerFromGroup expected dealers parameter');
+	}
+	if (!zip) {
+		throw new Error('_getNearestDealerFromGroup expected zip code parameter');
+	}
+
+	let nearest = dealers[0];
+	for (let dealer of dealers) {
+		if (dealer.distNum < nearest.distNum) {
+			nearest = dealer;
+		}
+	}
+	return nearest;
+}
+
 /**
 	Locates the nearest dealer based on a zip code
 	@param {String|Number} zip Zip code to search on
@@ -14,5 +31,6 @@ function findNearestDealer(zip) {
 }
 
 module.exports = {
-	findNearestDealer
+	findNearestDealer,
+	_getNearestDealerFromGroup
 }
