@@ -18,6 +18,23 @@ function _getNearestDealerFromGroup(dealers, zip) {
 }
 
 /**
+	Takes full dealer data from API response and reformats it into data to pass back in HTTP response
+*/
+function _formatDealerData(dealer) {
+	const formattedDealer = {
+		id: dealer.id,
+		address: dealer.address,
+		city: dealer.city,
+		state: dealer.state,
+		zip: dealer.zip,
+		country: dealer.country,
+		web: dealer.web,
+		phone: dealer.phone,
+		distance: dealer.distNum
+	}
+}
+
+/**
 	Locates the nearest dealer based on a zip code
 	@param {String|Number} zip Zip code to search on
 	@returns {Promise.<Object>} Nearest dealer found
@@ -27,7 +44,7 @@ function findNearestDealer(zip) {
 	return request(endpoint).then(res => {
 		// sort
 		const dealers = JSON.parse(res) || {};
-		return _getNearestDealerFromGroup(dealers.dealers, zip);
+		return _formatDealerData(_getNearestDealerFromGroup(dealers.dealers, zip));
 	});
 }
 
