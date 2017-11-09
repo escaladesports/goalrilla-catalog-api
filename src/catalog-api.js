@@ -1,10 +1,19 @@
 const requestValidator = require('./request-validator.js');
 const dealers = require('./dealers.js');
+const email = require('./email.js');
 
 function catalogRequestActions(data) {
+	let dealerResponseData;
+
 	return dealers.findNearestDealer(data.userZip).then(dealer => {
+		console.log('nearest dealer:');
+		console.dir(dealer);
+		const dealerAddress = 'christian.l.sedlacek@gmail.com';
+		const dealerResponseData = dealer;
 		// email dealer
-		return dealer;
+		return email.sendDealerCatalogEmail(data, dealerAddress);
+	}).then(() => {
+		return dealerResponseData;
 	});
 }
 
