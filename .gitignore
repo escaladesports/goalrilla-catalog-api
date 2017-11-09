@@ -22,3 +22,6 @@ uploads
 
 # Serverless directories
 .serverless
+
+# Webpack
+.webpack
