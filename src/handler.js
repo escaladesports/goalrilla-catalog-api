@@ -28,10 +28,12 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
 
 
   return catalogApi.postCatalogRequest(params).then(res => {
+    console.log('res:');
+    console.dir(res);
     const response = {
       statusCode: 200,
       body: JSON.stringify({
-        message: 'requestCatalogV1 function handler executed successfully!',
+        message: res,
         input: event
       }),
       headers: {
