@@ -32,6 +32,8 @@ function _formatDealerData(dealer) {
 		phone: dealer.phone,
 		distance: dealer.distNum
 	}
+
+	return formattedDealer;
 }
 
 /**
