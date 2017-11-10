@@ -37,7 +37,7 @@ To deploy to production, run `yarn deploy-prod` and enter `Y` when prompted to c
 
 ## Environment variables
 
-Environment variables should be added in the Spotinst console.
+Environment variables should be added in `env.yml` using a key-value list.
 
 ------
 
