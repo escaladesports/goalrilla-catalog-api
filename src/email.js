@@ -9,6 +9,9 @@ function sendDealerCatalogEmail(data, dealerAddress) {
 	const client = createClient();
 	const sendTo = (stage === 'production' || stage === 'prod') ? [dealerAddress, 'csedlacek@escaladesports.com'] : ['csedlacek@escaladesports.com'];
 
+	console.log('sendTo '+process.env.STAGE+':');
+	console.dir(sendTo);
+
 	const subject = 'New catalog request from Goalrilla.com';
 	const message = `<html><body><div style="font-size: ${regularFontSize}px;"><p>New catalog request received from Goalrilla.com:</p>
 	<hr>
@@ -17,7 +20,7 @@ function sendDealerCatalogEmail(data, dealerAddress) {
 		<li>Email address: ${data.userEmail}</li>
 		<li>
 			Address:
-			<address>
+			<address style="font-style: normal;">
 				${data.userAddress}<br>
 				${data.userCity}, ${data.userState} ${data.userZip}
 			</address>
