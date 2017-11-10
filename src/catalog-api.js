@@ -6,7 +6,7 @@ function _catalogRequestActions(data) {
 	let dealerResponseData;
 
 	return dealers.findNearestDealer(data.userZip).then(dealer => {
-		const dealerAddress = 'christian.l.sedlacek@gmail.com';
+		const dealerAddress = dealer.email;
 		dealerResponseData = dealer;
 		// email dealer
 		return email.sendDealerCatalogEmail(data, dealerAddress);

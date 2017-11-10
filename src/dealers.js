@@ -30,6 +30,7 @@ function _formatDealerData(dealer) {
 		country: dealer.country,
 		web: dealer.web,
 		phone: dealer.phone,
+		email: dealer.email,
 		distance: dealer.distNum
 	}
 
