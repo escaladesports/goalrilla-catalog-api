@@ -9,7 +9,7 @@ function _catalogRequestActions(data) {
 		console.log('nearest dealer:');
 		console.dir(dealer);
 		const dealerAddress = 'christian.l.sedlacek@gmail.com';
-		const dealerResponseData = dealer;
+		dealerResponseData = dealer;
 		// email dealer
 		return email.sendDealerCatalogEmail(data, dealerAddress);
 	}).then(() => {
