@@ -37,7 +37,7 @@ function _getNearestValidDealerFromGroup(dealers, zip) {
 			goalrilla: {}
 		}
 	});
-	
+
 	for (let dealer of dealers) {
 		if (((dealer.distNum < nearest.distNum) && dealer.brand.goalrilla.leads_email && dealer.brand.goalrilla.accept_leads) || !nearest.brand.goalrilla.leads_email) {
 			nearest = dealer;

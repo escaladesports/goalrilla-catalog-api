@@ -18,12 +18,14 @@ function _catalogRequestActions(data) {
 		dealerResponseData = dealer;
 		// email dealer
 
-		console.log('dealer:');
+		console.log('Dealer found:');
 		console.dir(dealer);
 
 		if (!dealerRequestAddress) {
 			return Promise.reject(new Error('Requested dealer does not have a listed email address for catalog requests'));
 		}
+
+		console.log('Emailing dealer at '+dealerRequestAddress);
 
 		return email.sendDealerCatalogEmail(data, dealerRequestAddress);
 	}).then(() => {
