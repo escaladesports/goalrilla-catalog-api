@@ -17,6 +17,7 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
     eventBody = {};
   }
   const params = {
+    dealerId: eventBody['dealerId'] || null,
     userFirstName: eventBody['First Name'], 
     userLastName: eventBody['Last Name'],
     userEmail: eventBody['Email'],

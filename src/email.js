@@ -7,10 +7,7 @@ const headerFontSize = 14;
 
 function sendDealerCatalogEmail(data, dealerAddress) {
 	const client = createClient();
-	const sendTo = (stage === 'production' || stage === 'prod') ? [dealerAddress, 'csedlacek@escaladesports.com'] : ['csedlacek@escaladesports.com'];
-
-	console.log('sendTo '+process.env.STAGE+':');
-	console.dir(sendTo);
+	const sendTo = (stage === 'production' || stage === 'prod') ? ['csedlacek@escaladesports.com'] : ['csedlacek@escaladesports.com'];
 
 	const subject = 'New catalog request from Goalrilla.com';
 	const message = `<html><body><div style="font-size: ${regularFontSize}px;"><p>New catalog request received from Goalrilla.com:</p>

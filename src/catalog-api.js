@@ -4,12 +4,28 @@ const email = require('./email.js');
 
 function _catalogRequestActions(data) {
 	let dealerResponseData;
+	let dealerFetchFunction;
 
-	return dealers.findNearestDealer(data.userZip).then(dealer => {
-		const dealerAddress = dealer.email;
+	if (data.dealerId) {
+		dealerFetchFunction = () => dealers.getDealerInformation(data.dealerId);
+	}
+	else {
+		dealerFetchFunction = () => dealers.findNearestDealer(data.userZip);
+	}
+
+	return dealerFetchFunction().then(dealer => {
+		const dealerRequestAddress = dealer.leadsEmail;
 		dealerResponseData = dealer;
 		// email dealer
-		return email.sendDealerCatalogEmail(data, dealerAddress);
+
+		console.log('dealer:');
+		console.dir(dealer);
+
+		if (!dealerRequestAddress) {
+			return Promise.reject(new Error('Requested dealer does not have a listed email address for catalog requests'));
+		}
+
+		return email.sendDealerCatalogEmail(data, dealerRequestAddress);
 	}).then(() => {
 		return dealerResponseData;
 	});
@@ -18,6 +34,7 @@ function _catalogRequestActions(data) {
 /**
 	Validates and handles catalog requests
 	@param {Object} params
+	@param {Number|null} params.dealerId Optional dealer ID to send request to; if blank, will send to nearest dealer found based on zip code
 	@param {String} params.userFirstName
 	@param {String} params.userLastName
 	@param {String} params.userEmail
