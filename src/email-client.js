@@ -17,7 +17,7 @@ class EmailClient {
 	send(messageData, recipients) {
 		const transmission = {
 			content: {
-				from: 'noreply@escaladeinc.com',
+				from: 'noreply@goalrilla.com',
 				subject: messageData.subject,
 				html: messageData.message
 			},
