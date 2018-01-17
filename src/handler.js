@@ -1,6 +1,7 @@
 'use strict';
 
 const catalogApi = require('./catalog-api.js');
+const timestamp = require('./timestamp.js');
 
 /*
   Main entry points go here
@@ -17,6 +18,7 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
     eventBody = {};
   }
   const params = {
+    submissionTimestamp: timestamp.createCurrentTimestamp(),
     dealerId: eventBody['dealerId'] || null,
     userFirstName: eventBody['First Name'], 
     userLastName: eventBody['Last Name'],

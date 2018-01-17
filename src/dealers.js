@@ -56,6 +56,7 @@ function _getNearestValidDealerFromGroup(dealers, zip) {
 function _formatNearestDealerData(dealer) {
 	const formattedDealer = {
 		id: dealer.id,
+		name: dealer.name,
 		address: dealer.address,
 		city: dealer.city,
 		state: dealer.state,
@@ -74,6 +75,7 @@ function _formatNearestDealerData(dealer) {
 function _formatSpecificDealerData(dealer) {
 	const formattedDealer = {
 		id: dealer.id,
+		name: dealer.name,
 		address: dealer.address,
 		city: dealer.city,
 		state: dealer.state,

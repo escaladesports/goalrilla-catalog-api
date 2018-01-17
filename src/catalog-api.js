@@ -3,7 +3,7 @@ const dealers = require('./dealers.js');
 const email = require('./email.js');
 
 function _catalogRequestActions(data) {
-	let dealerResponseData;
+	let fullData;
 	let dealerFetchFunction;
 
 	if (data.dealerId) {
@@ -15,7 +15,8 @@ function _catalogRequestActions(data) {
 
 	return dealerFetchFunction().then(dealer => {
 		const dealerRequestAddress = dealer.leadsEmail;
-		dealerResponseData = dealer;
+		fullData = Object.assign({}, data);
+		fullData.dealer = dealer;
 		// email dealer
 
 		console.log('Dealer found:');
@@ -27,9 +28,9 @@ function _catalogRequestActions(data) {
 
 		console.log('Emailing dealer at '+dealerRequestAddress);
 
-		return email.sendDealerCatalogEmail(data, dealerRequestAddress);
+		return email.sendDealerCatalogEmail(fullData, dealerRequestAddress);
 	}).then(() => {
-		return dealerResponseData;
+		return fullData;
 	});
 }
 
