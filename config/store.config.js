@@ -6,4 +6,4 @@ module.exports = {
 }
 
 // dev settings duplicate for now
-module.exports.dev = Object.assign({}, module.exports.production);
+module.exports.dev = Object.assign({}, module.exports.prod);
