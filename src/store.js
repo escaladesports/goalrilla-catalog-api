@@ -55,12 +55,11 @@ function appendSpreadsheet(auth, spreadsheetData, dataRows) {
 */
 function saveCatalogRequest(data) {
 	const sheetId = storeConfig[stage].spreadsheetId;
-	const category = productTypeMap.lookupWarrantyClaimCategory(data.productType);
-	const sheetName = storeConfig[stage].spreadsheetNames[category];
+	const sheetName = storeConfig[stage].spreadsheetName;
 
 	// first two rows of spreadsheet are header information
 	// uses columns A:N for key-value storage
-	const appendRange = sheetName + '!B2:R2';
+	const appendRange = sheetName + '!A2:R2';
 
 	const spreadsheetData = {
 		spreadsheetId: sheetId,
@@ -69,7 +68,6 @@ function saveCatalogRequest(data) {
 
 	// quote data
 	const rows = [[
-		'', // first column in-use so skip
 		data.submissionTimestamp,
 		data.userFirstName,
 		data.userLastName,
