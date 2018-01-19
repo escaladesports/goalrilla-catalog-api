@@ -1,5 +1,6 @@
 const requestValidator = require('./request-validator.js');
 const dealers = require('./dealers.js');
+const store = require('./store.js');
 const email = require('./email.js');
 
 function _catalogRequestActions(data) {
@@ -17,18 +18,18 @@ function _catalogRequestActions(data) {
 		const dealerRequestAddress = dealer.leadsEmail;
 		fullData = Object.assign({}, data);
 		fullData.dealer = dealer;
+		fullData.dealerId = fullData.dealerId ? fullData.dealerId : dealer.id;
 		// email dealer
 
-		console.log('Dealer found:');
-		console.dir(dealer);
-
 		if (!dealerRequestAddress) {
+			console.log('Requested dealer does not have a lead address, canceling...');
 			return Promise.reject(new Error('Requested dealer does not have a listed email address for catalog requests'));
 		}
 
-		console.log('Emailing dealer at '+dealerRequestAddress);
-
-		return email.sendDealerCatalogEmail(fullData, dealerRequestAddress);
+		return store.saveCatalogRequest(fullData)
+		.then(res => {
+			return email.sendDealerCatalogEmail(fullData, dealerRequestAddress);
+		})
 	}).then(() => {
 		return fullData;
 	});
