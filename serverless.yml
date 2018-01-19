@@ -13,6 +13,8 @@ provider:
   environment:
     STAGE: ${self:provider.stage}
     SPARKPOST_API_KEY: "${self:custom.secrets.SPARKPOST_API_KEY}"
+    GOOGLE_SHEETS_CLIENT_EMAIL: "${self:custom.secrets.GOOGLE_SHEETS_CLIENT_EMAIL}"
+    GOOGLE_SHEETS_API_KEY: "${self:custom.secrets.GOOGLE_SHEETS_API_KEY}"
 plugins:
   - serverless-webpack
   - serverless-offline
