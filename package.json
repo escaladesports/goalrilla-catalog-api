@@ -2,8 +2,11 @@
   "scripts": {
     "dev": "NODE_ENV=dev sls offline start",
     "deploy": "yarn test && serverless deploy --stage test",
-    "deploy-prod": "yarn test && node utils/deploy-prod.js",
-    "test": "NODE_ENV=test mocha"
+	 "deploy-prod": "yarn test && node utils/deploy-prod.js",
+    "logs": "serverless logs --function postWarrantyClaim --stage production",
+    "test": "NODE_ENV=test mocha",
+    "encrypt": "envdotjs --encrypt",
+    "unencrypt": "envdotjs --unencrypt"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -14,6 +17,7 @@
     "babel-preset-es2017": "^6.24.1",
     "chai": "^4.1.2",
     "child-process-promise": "^2.2.1",
+    "esca-scripts": "^0.12.1",
     "mocha": "^4.0.1",
     "prompt-confirm": "^1.2.0",
     "serverless": "^1.23.0",
@@ -25,6 +29,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "envdotjs": "^1.1.4",
     "googleapis": "^24.0.0",
     "isemail": "^3.0.0",
     "postcode-validator": "^1.2.0",

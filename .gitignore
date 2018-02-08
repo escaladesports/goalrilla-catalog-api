@@ -14,6 +14,8 @@ jspm_packages
 dev
 .env
 env.yml
+env.js
+envdotjs-key
 
 # Temporary
 temp
