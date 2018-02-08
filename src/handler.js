@@ -1,5 +1,5 @@
 'use strict';
-
+require('envdotjs').load()
 const catalogApi = require('./catalog-api.js');
 const timestamp = require('./timestamp.js');
 
@@ -20,7 +20,7 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
   const params = {
     submissionTimestamp: timestamp.createCurrentTimestamp(),
     dealerId: eventBody['dealerId'] || null,
-    userFirstName: eventBody['First Name'], 
+    userFirstName: eventBody['First Name'],
     userLastName: eventBody['Last Name'],
     userEmail: eventBody['Email'],
     userAddress: eventBody['Address'],
