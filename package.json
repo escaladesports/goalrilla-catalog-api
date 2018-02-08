@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "NODE_ENV=dev sls offline start",
     "deploy": "yarn test && serverless deploy --stage test",
-    "deploy-prod": "yarn test && node utils/deploy-prod.js",
+	 "deploy-prod": "yarn test && node utils/deploy-prod.js",
+    "logs": "serverless logs --function postWarrantyClaim --stage production",
     "test": "NODE_ENV=test mocha",
     "encrypt": "envdotjs --encrypt",
     "unencrypt": "envdotjs --unencrypt"
