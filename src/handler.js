@@ -10,6 +10,7 @@ const timestamp = require('./timestamp.js');
 */
 
 module.exports.requestCatalogV1 = (event, context, callback) => {
+	console.log('Endpoint hit...')
   let eventBody;
   try {
     eventBody = JSON.parse(event.body);
@@ -29,8 +30,11 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
     userZip: eventBody['Zip']
   };
 
+	console.log('Params:', params)
+
 
   return catalogApi.postCatalogRequest(params).then(res => {
+	  console.log('Response:', res)
     const response = {
       statusCode: 200,
       body: JSON.stringify({
@@ -45,6 +49,7 @@ module.exports.requestCatalogV1 = (event, context, callback) => {
 
     callback(null, response);
   }).catch(err => {
+	  console.error(err)
     const errors = [err.toString()];
 
     const response = {
