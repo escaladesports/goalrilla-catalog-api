@@ -15,13 +15,18 @@ class EmailClient {
 	}
 
 	send(messageData, recipients) {
+
+		let rec = recipients.map(address => ({ address }))
+
+		console.log('RECIPIENTS: ', rec)
+
 		const transmission = {
 			content: {
 				from: 'noreply@goalrilla.com',
 				subject: messageData.subject,
 				html: messageData.message
 			},
-			recipients: recipients.map(address => ({ address }))
+			recipients: rec
 		}
 
 		return this.client.transmissions.send(transmission)
