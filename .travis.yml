@@ -3,7 +3,7 @@ cache:
   directories:
     - node_modules
 script:
-  - envdotjs --unencrypt && rm env.js.enc && esca-scripts deploy --serverless
+  - esca-scripts test --serverless && esca-scripts deploy --serverless
 notifications:
   email:
     on_success: never

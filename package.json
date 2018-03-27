@@ -1,17 +1,17 @@
 {
   "scripts": {
-	  "build": "serverless package",
+    "build": "serverless package",
     "dev": "NODE_ENV=dev sls offline start",
     "deploy": "yarn test && serverless deploy --stage test",
     "deploy-prod": "yarn test && node utils/deploy-prod.js",
     "test": "NODE_ENV=test mocha",
     "encrypt": "envdotjs --encrypt",
-	 "unencrypt": "envdotjs --unencrypt",
-	 "travis": "opn https://travis-ci.org/escaladesports/goalrilla-catalog-api/branches",
-	"logs": "sls logs --tail --stage staging --function requestCatalogV1",
-	"logs-production": "sls logs --tail --stage production --function requestCatalogV1",
-	"logs-short": "sls logs --tail --stage staging --function requestCatalogV1 --startTime 5m",
-	"logs-production-short": "sls logs --tail --stage production --function requestCatalogV1 --startTime 5m"
+    "unencrypt": "envdotjs --unencrypt",
+    "travis": "opn https://travis-ci.org/escaladesports/goalrilla-catalog-api/branches",
+    "logs": "sls logs --tail --stage staging --function requestCatalogV1",
+    "logs-production": "sls logs --tail --stage production --function requestCatalogV1",
+    "logs-short": "sls logs --tail --stage staging --function requestCatalogV1 --startTime 5m",
+    "logs-production-short": "sls logs --tail --stage production --function requestCatalogV1 --startTime 5m"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -22,12 +22,13 @@
     "babel-preset-es2017": "^6.24.1",
     "chai": "^4.1.2",
     "child-process-promise": "^2.2.1",
-    "esca-scripts": "^0.12.1",
+    "esca-scripts": "^0.14.3",
     "mocha": "^4.0.1",
     "opn-cli": "^3.1.0",
     "prompt-confirm": "^1.2.0",
     "serverless": "^1.23.0",
-    "serverless-offline": "^3.16.0",
+    "serverless-mocha-plugin": "^1.7.0",
+    "serverless-plugin-optimize": "^3.0.4-rc.1",
     "serverless-spotinst-functions": "^1.0.15",
     "serverless-webpack": "^3.1.2",
     "webpack": "^3.8.1",
@@ -41,6 +42,7 @@
     "postcode-validator": "^1.2.0",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
+    "serverless-offline": "^3.18.0",
     "sparkpost": "^2.1.2"
   }
 }

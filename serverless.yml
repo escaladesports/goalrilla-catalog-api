@@ -1,25 +1,12 @@
 service: goalrilla-catalog-api
 
-custom:
-  # enable for environment variables
-  webpackIncludeModules: true
-
 provider:
   name: aws
   runtime: nodejs6.10
-  stage: prod
-  region: us-east-2
+  region: us-east-1
+  stage: "${opt:stage, 'development'}"
   environment:
-    STAGE: ${self:provider.stage}
-plugins:
-  - serverless-webpack
-  - serverless-offline
-
-package:
-  individually: true
-  include:
-    - env.js.enc
-    - envdotjs-key
+    NODE_ENV: "${opt:stage, 'development'}"
 
 functions:
   # V1 - use semver, increment version appended when breaking changes made
@@ -30,3 +17,20 @@ functions:
           path: catalog-requests
           method: post
           cors: true
+
+package:
+  individually: true
+  include:
+    - env.js.enc
+    - envdotjs-key
+
+custom:
+  serverless-offline:
+    babelOptions:
+      presets: ["es2015", "stage-3"]
+      plugins: ["transform-runtime"]
+
+plugins:
+  - serverless-plugin-optimize
+  - serverless-mocha-plugin
+  - serverless-offline
