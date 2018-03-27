@@ -1,6 +1,5 @@
 'use strict';
 require('envdotjs').load()
-console.log('Env:', process.env)
 const catalogApi = require('./catalog-api.js');
 const timestamp = require('./timestamp.js');
 
@@ -12,6 +11,7 @@ const timestamp = require('./timestamp.js');
 
 module.exports.requestCatalogV1 = (event, context, callback) => {
 	console.log('Endpoint hit...')
+	console.log('Env:', process.env)
   let eventBody;
   try {
     eventBody = JSON.parse(event.body);
