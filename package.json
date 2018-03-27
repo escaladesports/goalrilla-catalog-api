@@ -1,5 +1,6 @@
 {
   "scripts": {
+	  "build": "serverless package",
     "dev": "NODE_ENV=dev sls offline start",
     "deploy": "yarn test && serverless deploy --stage test",
     "deploy-prod": "yarn test && node utils/deploy-prod.js",

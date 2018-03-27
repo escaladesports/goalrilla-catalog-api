@@ -15,6 +15,12 @@ plugins:
   - serverless-webpack
   - serverless-offline
 
+package:
+  individually: true
+  include:
+    - env.js.enc
+    - envdotjs-key
+
 functions:
   # V1 - use semver, increment version appended when breaking changes made
   requestCatalogV1:
