@@ -7,9 +7,7 @@ provider:
   stage: "${opt:stage, 'development'}"
   environment:
     NODE_ENV: "${opt:stage, 'development'}"
-    SPARKPOST_API_KEY: ${env:SPARKPOST_API_KEY}
-    GOOGLE_SHEETS_CLIENT_EMAIL: ${env:GOOGLE_SHEETS_CLIENT_EMAIL}
-    GOOGLE_SHEETS_API_KEY: ${env:GOOGLE_SHEETS_API_KEY}
+    ENVDOTJS_KEY: ${env:ENVDOTJS_KEY}
 
 functions:
   # V1 - use semver, increment version appended when breaking changes made
