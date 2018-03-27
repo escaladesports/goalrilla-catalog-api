@@ -11,7 +11,6 @@ const timestamp = require('./timestamp.js');
 
 module.exports.requestCatalogV1 = (event, context, callback) => {
 	console.log('Endpoint hit...')
-	console.log('Env:', process.env)
   let eventBody;
   try {
     eventBody = JSON.parse(event.body);
